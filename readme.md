@@ -68,6 +68,28 @@ sudo chmod -R a+rw temp log
 ```
 ---
 
+
+### Adminer bezi na 8080
+
+```sh
+https://localhost:8080/
+```
+
+![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/a473ebec-b352-479c-9f07-7401c5505113)
+
+
+Pri prihlaseni do adminera treba zvolit udaje:
+```sh
+System   : MySQL
+Server   : mysql	
+Username : letaciky
+Password : letaciky
+Database : letaciky
+```
+- Niekedy nazov servera moze byt aj: "localhost" alebo "127.0.0.1"
+
+---
+
 ### Server
 
 - server beží na porte 443
@@ -75,9 +97,8 @@ sudo chmod -R a+rw temp log
 ```sh
 https://localhost
 ```
+![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/da476527-1c08-4b37-965f-acae0c475128)
 
-### Adminer bezi na 8080
 
-```sh
-https://localhost:8080/
-```
+
+
