@@ -1,9 +1,10 @@
 
-# Letaciky nette  verzia
+# Letaciky nette verzia
 
-Postavene na Nette 3 + dockery
+Postavene na Nette 3 + docker
 
-- oproti povodne verzii jej chyba par veci
+## Info:
+- oproti povodnej (php) verzii jej chyba zopar veci
 
 Funkcne:
 - Uvodna stranka
@@ -24,6 +25,12 @@ Docker:
  - adminer
  - redis
 
+Schema DB:
+
+![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/2d482fa0-5d6b-4736-9c03-93b3761f11ee)
+
+BD obsahuje testovacie data
+
 ## Inštalácia dockeru
 
 ```sh
@@ -35,7 +42,6 @@ docker compose up
 ```sh
 docker exec -it ulet_php composer install -d /var/www/html/letaciky_nette
 ```
-
 
 ### Spustenie projektu
 
