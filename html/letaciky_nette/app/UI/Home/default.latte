@@ -1,0 +1,49 @@
+
+{block content}
+{*
+    ============================
+      OBCHOD - zoznam letakov
+    ============================
+*}
+
+<div class="brb">
+    <div class="header_no">
+        <a n:href="Home:default " class="a_button button_back">
+            <i class="fa fa-arrow-circle-left arrow mobile"></i>
+            <span class="button_pc_text">späť do menu</span>
+        </a>
+		<div class="header_no_letaky">Vitajte na stránke s letákmi 😎</div>
+    </div>
+    <div class="header_before">
+        <div class="header">
+            <h1>Najnovšie pridané letáky</h1>
+            </div>
+        </div>
+
+    <div class="cell">
+        {foreach $leaflets as $leaflet}
+            {var $image = $url_image . '/' . $leaflet->shop->name . '/' . $leaflet->title}
+            {include card, $leaflet->shop, $leaflet, $image, ''}
+        {else}
+            <div class="header_no_letaky">Aktuálny leták nie je k dispozícií 😪</div>
+        {/foreach}
+    </div>
+
+
+    <div class="header_stare_letaky">
+        <div class="header">
+            <h2>Letáky, ktoré sa dnes končia</h2>
+        </div>
+    </div>
+
+    <div class="cell">
+        {foreach $leaflets_old as $leaflet}
+            {var $image = $url_image . '/' . $leaflet->shop->name . '/' . $leaflet->title}
+            {include card, $leaflet->shop, $leaflet, $image, img_old}
+        {else}
+            <div class="header_no_letaky">Dnes nekončia žiadne letáky 😉</div>
+        {/foreach}
+    </div>
+</div>
+
+

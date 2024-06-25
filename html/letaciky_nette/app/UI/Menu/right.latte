@@ -1,0 +1,22 @@
+{define row, $key, $value}
+    <span class="myinfo_tab_row">
+        <span class="myinfo_tab_key">{$key}</span>
+        <span class="myinfo_tab_value">{$value}</span>
+   </span>
+{/define}
+
+{define info}
+<div class="myinfo">
+   <div class="myinfo_title">Letáčiky</div>
+   <div class="myinfo_sub_title">množstvo zliav na jednom mieste</div>
+   <div class="myinfo_sub_title2">v ponuke viac ako:</div>
+   <div class="myinfo_tab">
+        {include row, $stat_shop, 'obchodov'}
+        {include row, $stat_leaflet, 'letákov'}
+        {include row, $stat_pages, 'strán'}
+{*        {include row, 210, 'produktov'}*}
+        {include row, 1812, 'MB dát'}
+       <div class="myinfo_url">{$baseUrl}</div>
+   </div>
+</div>
+{/define}

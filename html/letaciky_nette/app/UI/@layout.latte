@@ -1,0 +1,69 @@
+{import Card/card.latte}
+{import Menu/menu.latte}
+{import Menu/right.latte}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+
+	<link rel="stylesheet" href="{$basePath}/css/icons_sk.css?v=2024" type="text/css" />
+	<link rel="stylesheet" href="{$basePath}/css/theme.css?v=2024" type="text/css" />
+	<link rel="stylesheet" href="{$basePath}/css/ulet_style.css?v=2024" type="text/css" />
+	<link rel="stylesheet" href="{$basePath}/css/search.css?v=2024" type="text/css" />
+	<link rel="stylesheet" href="{$basePath}/css/info.css?v=2024" type="text/css" />
+	<link rel="stylesheet" href="{$basePath}/css/open_hours.css?v=2024" type="text/css" />
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico" />
+	<link rel="icon" type="image/vnd.microsoft.icon" href="{$basePath}/favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="{$basePath}/favicon.ico" />
+	<link rel="icon" href="{$basePath}/favicon.ico" />
+
+</head>
+
+<body>
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+	<button onclick="topFunction()" id="btnTop" title="Go to top"><i class="fa fa-arrow-circle-up arrow mobile"></i></button>
+
+	{include menu}
+
+	<div id="main">
+		<div class="row">
+			<div class="leftcolumn">
+				{include content}
+
+				{include ikonky}
+			</div>
+
+			<div class="rightcolumn">
+				<div class="card_ban">
+					{include info}
+				</div>
+			</div>
+
+			<div class="bottom">
+				<div class="bottom_after">
+					<div class="autor">2024 LetNet '(°-°)' Nette fork</div>
+					<div class="autor">
+						<a href="https://letaciky.sk/kontakt">Kontakt</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	{block scripts}
+	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
+	<script type="text/javascript"> 
+		var myData = {"expand_next":"Zobrazi\u0165 \u010fal\u0161ie obchody","expand_back":"Schova\u0165 v\u0161etky obchody"
+		}
+	</script>
+	<script type="text/javascript" src="{$basePath}/js/ulet.js?v=2024"></script>
+	<script type="text/javascript" src="{$basePath}/js/search_new.js?v=2024"></script>
+	{/block}
+</body>
+</html>

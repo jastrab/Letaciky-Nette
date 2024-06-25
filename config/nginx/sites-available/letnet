@@ -1,0 +1,46 @@
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    
+    server_name localhost letnet letaciky;
+    
+    ssl_certificate           /etc/nginx/cert/letnet.crt;
+    ssl_certificate_key       /etc/nginx/cert/letnet.key;
+    
+    error_log    /var/log/nginx/letnet_error.log;
+    access_log   /var/log/nginx/letnet_access.log;
+
+    root         /var/www/html/letaciky_nette/www;
+
+    charset      utf-8;
+    index   index.php;
+
+    location /images {
+            try_files /index.php$is_args$args $uri $uri/;
+
+            fastcgi_pass php:9000;
+            include         fastcgi_params;
+            fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+            fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
+    }
+
+    location / {
+            try_files $uri $uri/ /index.php$is_args$args;  # $is_args$args is important
+    }
+
+    location ~ \.php$ {
+            fastcgi_pass php:9000;
+            include fastcgi_params;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name localhost letnet letaciky;
+    return 301 https://$host$request_uri;
+}

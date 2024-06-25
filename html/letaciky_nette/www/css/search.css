@@ -1,0 +1,169 @@
+
+a .search_item
+{
+    /*color: white;*/
+    color: var(--search-item-a-col);
+}
+
+a:hover .search_item
+{
+    color: var(--search-item-col-hover);
+    background-color: var(--search-item-bg-hover);
+    filter: contrast(120%) drop-shadow( 8px 9px 5px var(--search-item-shadow-hover));
+
+}
+
+/*body
+{
+    background-image: var(--background-image);
+}*/
+
+h3 div
+{
+    padding: 10px 0;
+} 
+
+/*.div_search
+{
+    display: block;
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-size: 25px;
+    width: 30vw;
+    height: 70%;
+}*/
+
+.div_search
+{
+    display: block;
+    /*width: 200px;*/
+    /*height: 40px;*/
+    position: absolute;
+    right: 65px;
+    top: 12px;
+    font-size: 25px;
+    width: 11vw;
+    height: 70%;
+    /*float: left;*/
+    /*margin:  10px;*/
+}
+#search 
+{
+    display: block;
+    width: 100%;
+    height: 70%;
+}
+
+#display
+{
+    display: block;
+}
+
+.img_search_item
+{
+    vertical-align: middle;
+    float: left;
+    /*height: 41.66px;*/
+    /*width: 100px;*/
+    margin-right: 10px;
+}
+
+hr
+{
+    color: var(--violet-dark2);
+}
+
+.txt_search_item 
+{
+  float: left;
+  padding: 0px 9px;
+  vertical-align: middle;
+}
+
+.txt_search_item::first-letter
+{
+    font-size: 22px;
+}
+
+.search_item
+{
+    font-size: 17px;
+    /*font-size: 20px;*/
+    padding: 5px 10px;
+    float: left;
+    width: 100%;
+    color: var(--search-item-col);
+}
+
+.search_result
+{
+    background-color: var(--search-result-bg);
+    color: var(--serch-result-col);
+    width: 400px;
+    float: left;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    z-index: 1;
+}
+
+.search_product_col
+{
+  color: var(--search-product-col-col);
+}
+
+@media only screen and (max-device-width: 600px)  
+{
+
+    .div_search
+    {
+        display: block;
+        position: absolute;
+        right: 55px;
+        top: 0px;
+        width: unset;
+        padding: 0px 7px;
+    }
+
+    #search 
+    {
+        display: block;
+        width: 75%;
+        height: 70%;
+    }
+
+     #search2 
+     {
+        display: block;
+        padding: 5px 5px;
+        margin: 10px;
+        width: 90vw;
+    }
+
+    .search_result
+    {
+        width: 100%;
+        position: fixed;
+        right: 0;
+        top: 55px;
+        z-index: 10;
+    }
+
+    .search_item
+    {
+        padding: 7px;
+        font-size: 20px;
+    }
+/*
+    .img_search_item
+    {
+        height: 12vw;
+        width: 26vw;
+        margin-right: px;
+    }*/
+
+}

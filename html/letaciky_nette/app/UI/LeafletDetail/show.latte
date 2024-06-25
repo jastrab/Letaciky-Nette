@@ -1,0 +1,31 @@
+{block content}
+{*
+    ====================
+      DETAIL Letaku
+    ====================
+*}
+
+<div class="header_no">
+    <a n:href="Leaflet:show $shop->name" class="a_button button_back">
+        <i class="fa fa-arrow-circle-left arrow mobile"></i>
+        <span class="button_pc_text">späť do obchodu</span>
+    </a>
+    <h1><span class="od_do_col">{$shop->title}</span> leták</h1>
+</div>
+
+<div class="header_before">
+    <div class="header">
+        <span class="icon_{$shop->icon} img_head_logo"></span>
+        <div class="header_od_do">
+            od {$leaflet->startDate|date:'d. m. Y'} do {$leaflet->endDate|date:'d. m. Y'}
+            {$leaflet->sub_title}
+        </div>
+    </div>
+</div>
+
+
+<div n:for="$i = 1; $i <= $leaflet['pages2']; $i++">
+    <div class="detail" id="page_{$i|padLeft: 2, '0'}">
+        <img class="img_detail" width="872" height="auto" src="{$url_image}/strana_{$i|padLeft: 2, '0'}.webp" alt="" >
+    </div>
+</div>

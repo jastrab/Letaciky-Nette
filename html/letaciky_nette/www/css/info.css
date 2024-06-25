@@ -1,0 +1,66 @@
+.myinfo
+{
+    background-color: var(--info-bg);
+    color:  white;
+    width: 240px;
+}
+
+.myinfo_title
+{
+	color: var(--info-title-col);
+	font-size: 50px;
+	padding: 10px 0;
+}
+
+
+.myinfo_sub_title
+{
+	font-size: 13px;
+	padding: 0px 10px;
+	text-align: left;
+}
+
+.myinfo_sub_title2
+{
+	color: var(--info-subtitle-col);
+	font-size: 12px;
+	padding: 0px 10px;
+	text-align: left;
+}
+
+.myinfo_tab
+{
+	font-size: 20px;
+	padding: 10px 0;
+}
+
+.myinfo_tab_row
+{
+	font-size: 18px;
+	display: flex;
+}
+
+.myinfo_tab_key
+{
+	color: var(--info-tab-key-col);
+	width: 35%;
+	padding: 0px 5px;
+	text-align: right;
+}
+
+
+.myinfo_tab_value
+{
+	width: 60%;
+	padding: 0px 5px;
+	text-align: left;
+}
+
+
+.myinfo_url
+{
+	color: var(--info-url-col);
+	font-size: 25px;
+	padding: 10px 0;
+}
+

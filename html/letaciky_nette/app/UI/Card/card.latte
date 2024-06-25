@@ -1,0 +1,21 @@
+{*DEFINE - Vykreslenie card*}
+{define card, $shop, $leaflet, $image, $img_old=''}
+
+    {if ($image|slice:-5) !== '.webp'}
+        {var $image = $image . '/__cover__.webp'}
+    {/if}
+
+    <div class="column">
+        <div class="card">
+            <a n:href="LeafletDetail:show $shop->name, $leaflet->title">
+                <span class="icon_{$shop->icon} img_cover_head"></span>
+            </a>
+            <a n:href="LeafletDetail:show $shop->name, $leaflet->title">
+                <img class="img_cover {$img_old}" height="auto" src="{$image}" alt="" >
+                <div class="container">{$shop->title}</div>
+                <div class="container od_do">od {$leaflet->startDate|date:'d. m. Y'} do {$leaflet->endDate|date:'d. m. Y'}</div>
+                <div class="container">{$leaflet->sub_title}</div>
+            </a>
+        </div>
+    </div>
+{/define}

@@ -1,0 +1,60 @@
+
+{* HLADANIE Obchodu *}
+{* vrati zoznam obchodov *}
+    {if ($key_search|length) > 1}  {*  dm ma len 2 :/" *}
+        <hr />
+        {foreach $data_shops as $data}
+             <a href="{$data->title}">
+                 <div class="search_item">
+                     <h3>
+                        <span class="img_search_item icon_{$data->icon}"></span>
+                        <div class="txt_search_item">
+                              <div>{$data->title}</div>
+                        </div>
+                     </h3>
+                 </div>
+             </a>
+        {else}
+            <div class="search_item">
+               <h3>Obchod sa nenašiel</h3>
+            </div>
+        {/foreach}
+
+    {*  Malo znakov, aspon 1..*}
+    {else}
+         <hr />
+         <div class="search_item">
+            <h4>Aspoň 2 znaky pre hľadanie v obchodoch.</h4>
+         </div>
+    {/if}
+
+
+{* HLADANIE Produktov v letakoch *}
+{* vrati pocet najdenych produktov *}
+    {if ($key_search|length) > 2}   {* Aspon 3 znaky *}
+        <hr />
+        {if $count_products > 0}
+            {if $count_products < 200}
+                <a n:href="LeafletSearch:show $key_search">
+                    <div class="search_item">
+                        <h3>Výraz <span class="search_product_col">{$key_search}</span> sa našlo v <span class="search_product_col">{$count_products}</span> letákoch</h3>
+                    </div>
+                </a>
+            {else}
+                <div class="search_item">
+                    <h3>Nájdených veľa výsledkov. Skús viac špecifikovať slová.</h3>
+                </div>
+            {/if}
+        {else}
+            <div class="search_item">
+                <h3>Produkt sa nenašiel.</h3>
+            </div>
+        {/if}
+    {else}
+        <hr />
+        <div class="search_item">
+            <h4>Aspoň 3 znaky pre hľadanie v produktoch.</h4>
+        </div>
+    {/if}
+
+    <hr />

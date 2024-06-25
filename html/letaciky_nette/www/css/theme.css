@@ -1,0 +1,133 @@
+:root {
+
+  --search-result-bg: var(--violet-light);
+  --search-result-col: var(--color-white);
+  --search-item-a-col: var(--color-white);
+  --search-item-col: var(--color-white);
+  --search-item-col-hover: var(--color-white);
+  --search-item-bg-hover: var(--violet-dark);
+  --search-item-shadow-hover: var(--violet-light);
+  --search-product-col-col: yellow;
+
+  --info-bg: var(--violet-dark);
+  --info-title-col: var(--orange);
+  --info-subtitle-col: lightgray;
+  --info-tab-key-col: var(--orange);
+  --info-url-col: var(--orange);
+
+  --contact-input-bg: #04AA6D;
+  --contact-input-col: var(--color-white);
+  --contact-input-hover-bg: #45a049;
+  --contact-container-bg: #f2f2f2;
+  --contact-context-col: var(--violet-light);
+
+
+  --body-bg: var(--background-black);
+  --body-col: var(--color-black);
+  --content-bg: var(--background-white);
+  --row-bg: var(--background-white);
+
+  --button-bg: #000;
+  --button-col: var(--color-white);
+  --a-color: var(--color-black);
+
+  --icon-theme-col: var(--color-white);
+
+  --theme-sub-bg: var(--violet-light);
+  --theme-sub-col: var(--color-white);
+  --theme-sub-item-col: var(--color-white);
+  --theme-sub-item-bg: var(--violet-light);
+
+  --img-cover-shadow: var(--color-black);
+  --img-cover-shadow-hover: var(--violet-light);
+  --img-old-shadow: var(--color-black);
+  --img-old-shadow-hover: #430071e3;
+  --img-cover-head-border-hover: var(--violet-light);
+  --logo-obchod-shadow: #ff800000;
+  --logo-obchod-border: var(--color-white);
+  --logo-obchod-border-hover: var(--violet-light);
+  --logo-col: var(--color-white);
+  --header-border: var(--violet-light);
+  --header-shadow: var(--violet-light);
+  --statistics-col: var(--color-black);
+  --statistic-value-col: #54008c;
+  --header-od-do-col:  #54008c;
+  --od-do-col: var(--violet-light);
+  --sub-title-col-col: #dd7324;
+  --sub-title-page-bg: yellow;
+  --sub-title-page-num-col: var(--violet-light);
+
+  --button-back-bg: var(--orange);
+  --button-next-bg: var(--orange);
+  --button-back-bg-hover: var(--orange-hover);
+  --button-next-bg-hover: var(--orange-hover);
+  --button-back-col-hover: var(--color-black);
+  --button-next-col-hover: var(--color-black);
+
+  --logo-obchod-badge-bg: var(--violet-dark);
+  --logo-obchod-badge-col: var(--color-white);
+  --logo-obchod-badge-zero-bg: #5b5b5b;
+  --tag-col: var(--color-black);
+  --tag-col-hover: var(--color-white);
+  --tag-bg: var(--violet-tags);
+  --tag-bg-hover: var(--violet-light);
+  --menu-items-bg: var(--violet-dark);
+  --menu-items-col: var(--color-white);
+  --menu-bg: var(--violet-dark);
+  --header-no-letaky-col: var(--violet-light);
+  --menu-sub-bg: var(--violet-light);
+  --menu-sub-items-bg: var(--violet-light);
+  --menu-sub-items-col: var(--color-white);
+  --menu-sub-items-bg-hover: var(--violet-dark);
+
+  --menu-button-col-hover: #f1f1f1;
+  --menu-button-bg-hover: var(--violet-dark2);
+
+  --flex-container-border: var(--violet-light);
+  --flex-item-col: var(--color-white);
+
+  --logo-obchody-sub-col: var(--color-white);
+  --logo-obchody-sub-col-hover: var(--color-white);
+  --logo-obchody-sub-bg: var(--violet-dark);
+  /*--logo-obchody-sub-bg-hover: var(--violet-light);*/
+  --logo-obchody-sub-bg-hover: var(--violet-dark2);
+
+  --menu-bars-mobile-bg: var(--violet-dark);
+  --menu-bars-mobile-col: var(--color-white);
+  --menu-bars-search-bg: var(--violet-dark);
+  --menu-bars-search-col: var(--color-white);
+
+  --button-top-bg: var(--violet-dark);
+  --button-top-bg-hover: var(--violet-light);
+  --button-top-col: var(--color-white);
+  --button-top-col-hover: var(--color-white);
+  --button-bg-hover: var(--violet-light);
+  --button-col-hover: var(--color-white);
+
+  --a-button-shadow: gray;
+  --a-button-shadow-hover: var(--color-black);
+
+  --expand-next-bg: var(--violet-dark);
+  --expand-back-bg: var(--violet-light);
+
+
+  --button-web-url-bg: var(--orange);
+  --button-web-url-bg-hover: var(--orange-hover);
+  --button-web-url-col-hover: var(--color-black);
+
+  --button-pass-bg-hover: var(--gray);
+  --button-pass-col-hover: var(--color-black);
+
+  --button-pass-bg: var(--gray);
+  --button-pass-col: var(--color-black);
+
+  --table-hours-col: var(--color-black);
+  --table-hours-bg: var(--violet-tags);
+  --table-hours-td-key-col: var(--violet-dark2);
+  --table-hours-tr-ch1-bg: var(--violet-tags);
+
+  --table-hours-tr-hover-bg: var(--violet-dark);
+  --table-hours-tr-hover-col: var(--violet-light);
+  
+
+}
