@@ -57,10 +57,20 @@ docker exec -it ulet_php composer install -d /var/www/html/letaciky_nette
 docker compose up -d
 ```
 
+## Error
+v prípade chyby, treba nastaviť práva:
 
-### Server pre FastApi
+Unable to create directory '/var/www/html/letaciky_nette/temp/cache' with mode 777. Permission denied.
 
-- server beží na porte 8080
+```sh
+cd ./html/letaciky_nette
+sudo chmod -R a+rw temp log
+```
+---
+
+### Server
+
+- server beží na porte 443
 
 ```sh
 https://localhost
