@@ -6,6 +6,9 @@ Postavene na Nette 3 + docker
 ## Info:
 - oproti povodnej (php) verzii jej chyba zopar veci
 
+Nove:
+- data preklopene do DB
+
 Funkcne:
 - Uvodna stranka
 - Stranka s letakmi
@@ -16,7 +19,10 @@ Funkcne:
 Nefunkcne:
 - Otvaracie hodiny
 
-Použité technológie
+- vynechane jazykove mutacie a podpora subdomen
+- nove/aktualizovane data zatial nie su dostupne pre tuto verziu
+
+## Tech. info
 
 Docker:
  - php
