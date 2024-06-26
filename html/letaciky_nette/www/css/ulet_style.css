@@ -1430,3 +1430,19 @@ button:hover
   }
 }
 
+.containerMap
+{
+    background-color: white;
+    width: 25rem;
+    padding: 1.4rem;
+    box-shadow: 1px 5px 5px 0 rgba(0, 0, 0, 0.20);
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+}
+.containerMap * {
+    box-sizing: inherit;
+    font-size: inherit;
+}
+.containerMap #MapBox {
+    margin-bottom: 0.75rem;
+}

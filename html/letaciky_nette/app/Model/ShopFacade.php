@@ -32,13 +32,19 @@ final class ShopFacade
      * @param string $name
      * @return Nette\Database\Table\ActiveRow
      */
-    public function getShopInfoName(string $name): Nette\Database\Table\ActiveRow
+    public function getShopInfoName(string $name): ?Nette\Database\Table\ActiveRow
     {
-        return $this->database
+//        return $this->database
+//            ->table('shop')
+//            ->where('name', $name)
+//            ->limit(1)
+//            ->fetch();
+         $shop = $this->database
             ->table('shop')
             ->where('name', $name)
-            ->limit(1)
-            ->fetch();
+            ->limit(1);
+
+         return !is_null($shop) ? $shop->fetch() : null;
     }
 
     /**

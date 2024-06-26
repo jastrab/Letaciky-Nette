@@ -15,9 +15,9 @@ final class LeafletSearchPresenter extends BasePresenter
     {
         $url_image = 'https://letaciky.sk/images/sk';
 
-        $products = $this->leaflet_texts_facade->getLeafletText($name);
+        $leaflet_texts = $this->leaflet_texts_facade->getLeafletText($name);
 
-        $this->template->leaflet_texts = $products;
+        $this->template->leaflet_texts = $leaflet_texts;
         $this->template->url_image = $url_image;
         $this->template->key_search = $name;
     }

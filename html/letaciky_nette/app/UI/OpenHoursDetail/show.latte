@@ -1,0 +1,116 @@
+{block content}
+{*
+    ============================
+     OH - Zoznam obchodov
+    ============================
+*}
+
+<div class="brb">
+
+	 <div class="header_no">
+        <a n:href="Home:default " class="a_button button_back">
+            <i class="fa fa-arrow-circle-left arrow mobile"></i>
+            <span class="button_pc_text">späť do menu</span>
+        </a>
+      	<span class="icon_f_{$shop?->icon} img_head_logo"></span>
+
+    </div>
+
+	<div class="header_before">
+		<div class="header center">
+			<h1>
+				Otváracie hodiny
+				<span class="od_do_col">{$oh_shop_index->title}</span>
+			</h1>
+		</div>
+	</div>
+
+	<div class="cell">
+    	<div class="column_oh">
+        	<div class="card">
+				<h2>
+{*					{$shop->title}*}
+					{$oh_shop_index->title}
+					{$oh_shop->address}
+				</h2>
+
+				 {var $open_hours_key = [
+					'monday' => 'Pondelok',
+					'tuesday' => 'Utorok',
+					'wednesday' => 'Streda',
+					'thursday' => 'Štvrtok',
+					'friday' => 'Piatok',
+					'saturday' => 'Sobota',
+					'sunday' => 'Nedeľa']}
+
+				<div class="table tabkal">
+					{foreach $open_hours_key as $key => $value}
+						<div class="tr">
+							<div class="td">{$value}</div>
+						 	<div class="td">{$oh_shop->open_hours_days[$key]}</div>
+					   </div>
+					{/foreach}
+
+				</div>
+
+				<h3>Adresa:</h3>
+
+				<h4>
+				{$oh_shop_index->title}
+				<br />
+				{$oh_shop->address}
+				<br />
+				{$oh_shop->city}
+				</h4>
+        	</div>
+      	</div>
+
+
+		{if $oh_shop->open_hours_gps->lat}
+			<div class="column_oh">
+				<div class="containerMap">
+					<div id="MapBox" style="height: 21rem"></div>
+				</div>
+			</div>
+		{/if}
+	</div>
+</div>
+
+
+{if $oh_shop->open_hours_gps->lat}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	{*<link rel="stylesheet" href="{$basePath}/libs/css/Control.MiniMap.min.css" />*}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.css" integrity="sha512-qm+jY0iQ4Xf5RL79UB75REDLYD0jtvxxVZp2RVIW8sm8RNiHdeN43oksqUPrBIshJtQcVPrAL08ML2Db8fFZiA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+	{*<script type="text/javascript" src="{$basePath}/libs/js/Control.MiniMap.min.js"></script>*}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js" integrity="sha512-WL3nAJlWFKoDShduxQRyY3wkBnQsINXdIfWIW48ZaPgYz1wYNnxIwFMMgigzSgjNBC2WWZ8Y8/sSyUU6abuF0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+	<script type="text/javascript">
+		let lon = {$oh_shop->open_hours_gps->lon};
+		let lat = {$oh_shop->open_hours_gps->lat};
+   </script>
+
+	<script n:syntax="off" type="text/javascript">
+	   $(function() {
+		   setLocation = [ lat, lon ];
+		   var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+		   var osmAttrib='Map data &copy; OpenStreetMap contributors';
+		   var map = L.map('MapBox').setView(setLocation, 17);
+		   L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			   attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+		   }).addTo(map);
+		   map.attributionControl.setPrefix(false);
+		   var marker = new L.marker(setLocation, {
+			   draggable: false
+		   });
+		   map.addLayer(marker);
+
+		  var osm2 = new L.TileLayer(osmUrl, { minZoom: 0, maxZoom: 13, attribution: osmAttrib });
+		  var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true, width: 100, height: 100, zoomLevelOffset: -3 }).addTo(map);
+	   });
+   </script>
+{/if}
+

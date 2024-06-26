@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="{$basePath}/css/ulet_style.css?v=2024" type="text/css" />
 	<link rel="stylesheet" href="{$basePath}/css/search.css?v=2024" type="text/css" />
 	<link rel="stylesheet" href="{$basePath}/css/info.css?v=2024" type="text/css" />
-	<link rel="stylesheet" href="{$basePath}/css/open_hours.css?v=2024" type="text/css" />
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico" />
 	<link rel="icon" type="image/vnd.microsoft.icon" href="{$basePath}/favicon.ico" />
 	<link rel="icon" type="image/x-icon" href="{$basePath}/favicon.ico" />
@@ -39,9 +38,10 @@
 			</div>
 
 			<div class="rightcolumn">
-				<div class="card_ban">
 					{include info}
-				</div>
+					{include info_oh}
+					{include info_web}
+					{include info_url}
 			</div>
 
 			<div class="bottom">

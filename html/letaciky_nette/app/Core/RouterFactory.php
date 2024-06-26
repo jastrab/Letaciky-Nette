@@ -16,6 +16,15 @@ final class RouterFactory
 	{
 		$router = new RouteList;
 
+        $router->addRoute('/otvorene/<name>/<slug>', 'OpenHoursDetail:show');
+        $router->addRoute('/otvorene/<name>', 'OpenHours:show');
+
+        $router->addRoute('/otvorene', 'OpenHours:show');
+        $router->addRoute('/open', 'OpenHours:show');
+
+        $router->addRoute('/kontakt', 'Contact:show');
+
+
         $router->addRoute('/hladat', 'Search:search');
         $router->addRoute('/search', 'Search:search');
 

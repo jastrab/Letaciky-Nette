@@ -1,0 +1,47 @@
+{block content}
+{*
+    ============================
+     OH - Zoznam obchodov
+    ============================
+*}
+
+<div class="brb">
+
+	 <div class="header_no">
+        <a n:href="Home:default " class="a_button button_back">
+            <i class="fa fa-arrow-circle-left arrow mobile"></i>
+            <span class="button_pc_text">späť do menu</span>
+        </a>
+    </div>
+
+	<div class="header_before">
+		<div class="header center">
+			<h1>
+				<span class="od_do_col"></span>
+				Otváracie hodiny
+			</h1>
+		</div>
+	</div>
+
+	<div class="cell_oh">
+        {foreach $open_hours as $open_hour}
+			{if $is_index}
+            	<a n:href="OpenHours:show $open_hour->name">
+					<h3><span class="od_do_col">{$open_hour->title}</span></h3>
+            	</a>
+			{else}
+{*            	<a n:href="OpenHoursDetail:show $open_hour->open_hours_shop_index->name, $open_hour->slug">*}
+            	<a n:href="OpenHoursDetail:show $open_hours_shop_index->name, $open_hour->slug">
+					<h3>{$open_hours_shop_index->title},
+						<span class="od_do_col">{$open_hour->city}</span>
+						<span class="cell_oh_address">{$open_hour->address}</span>
+		            </h3>
+            	</a>
+			{/if}
+
+
+        {else}
+    	    <div class="header_no_letaky">Otváracie hodiny nie sú k dispozícií 😔</div>
+        {/foreach}
+	</div>
+</div>

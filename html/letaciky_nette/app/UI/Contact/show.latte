@@ -1,0 +1,77 @@
+<?php
+/**
+ * Kontaktny formular
+ * + odpovede po odoslani
+ *
+ */
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+
+        {php
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            $_SESSION['datestart'] = new DateTime("now");
+        }
+
+        <div id="main">
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="context">
+                        Máš nejaké otázky, alebo ti tu niečo chýba?<br />Napíš nám 😉
+                    </div>
+                     <div class="container">
+                        <form action="mail.php" method="post">
+
+                            <input type="hidden" name="token" value="{php echo $token;}">
+                            <input type="hidden" name="dom" value="{$baseUrl}">
+
+                            <label for="subject">Predmet</label>
+                            <input type="text"  name="subject" placeholder="O čo ide? Poďakovanie, Požiadavka, Chyba, Chýba mi tu...">
+
+                            <label for="email">E-mail</label>
+                            <input type="text"  name="email" placeholder="Zadaj svoj e-mail">
+
+                            <label for="message">Správa</label>
+                            <textarea  name="message" placeholder="Čo máš na srdci?"></textarea>
+                            <input type="submit" value="Odoslať">
+                        </form>
+                    </div>
+
+                    <div class="rightcolumn">
+                        <div class="card_ban">
+                            {include info}
+                        </div>
+                        <div class="card_ban">
+                            {include info_oh}
+                        </div>
+                        <div class="card_ban">
+                            {include info_web}
+                        </div>
+                        <div class="card_ban">
+                            {include info_url}
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+                        <div class="bottom_after">
+                            <div class="autor">2024 LetNet '(°-°)' Nette fork</div>
+                            <div class="autor">
+                                <a href="https://letaciky.sk/kontakt">Kontakt</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <?php
+        require_once('content/bottom_js.php');
+    ?>
+</html>
+
+

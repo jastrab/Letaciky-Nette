@@ -6,17 +6,86 @@
 {/define}
 
 {define info}
-<div class="myinfo">
-   <div class="myinfo_title">Letáčiky</div>
-   <div class="myinfo_sub_title">množstvo zliav na jednom mieste</div>
-   <div class="myinfo_sub_title2">v ponuke viac ako:</div>
-   <div class="myinfo_tab">
-        {include row, $stat_shop, 'obchodov'}
-        {include row, $stat_leaflet, 'letákov'}
-        {include row, $stat_pages, 'strán'}
-{*        {include row, 210, 'produktov'}*}
-        {include row, 1812, 'MB dát'}
-       <div class="myinfo_url">{$baseUrl}</div>
-   </div>
+<div class="card_ban">
+    <div class="myinfo">
+       <div class="myinfo_title">Letáčiky</div>
+       <div class="myinfo_sub_title">množstvo zliav na jednom mieste</div>
+       <div class="myinfo_sub_title2">v ponuke viac ako:</div>
+       <div class="myinfo_tab">
+            {include row, $stat_shop, 'obchodov'}
+            {include row, $stat_leaflet, 'letákov'}
+            {include row, $stat_pages, 'strán'}
+    {*        {include row, 210, 'produktov'}*}
+            {include row, 1812, 'MB dát'}
+           <div class="myinfo_url">{$baseUrl}</div>
+       </div>
+    </div>
 </div>
+{/define}
+
+{* <?php if ($key == '' && !isset($open_hours)): ?>*}
+{define info_oh}
+    {if !$oh_exists}
+        <div class="card_ban">
+            <a n:href="OpenHours:show" class="a_button button_web_url">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otváracie hodiny&nbsp;&nbsp;&nbsp;
+            </a>
+        </div>
+    {/if}
+{/define}
+
+
+{define info_web}
+    <div class="card_ban">
+{*        {if $shop_web}*}
+{*            <a class="a_button button_web_url" href="{$shop_web}" target="_blank">*}
+{*                <i class="fa fa-home arrow mobile"></i>*}
+{*                Stránka obchodu*}
+{*               </a>*}
+{*        {else}*}
+{*            <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">*}
+{*               <i class="fa fa-home arrow mobile"></i>*}
+{*               Stránka obchodu*}
+{*            </a>*}
+{*        {/if}*}
+
+        <a n:href="Contact:default" class="a_button button_web_url" target="_blank">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kontakt&nbsp;&nbsp;&nbsp;
+        </a>
+
+    </div>
+{/define}
+
+
+
+{define info_url}
+    <div class="card_ban">
+        {if $is_flayer}
+            {if $oh_exists}
+                <a class="a_button button_web_url" href="{$oh_url}" target="_blank">
+                    <i class="fa fa-home arrow mobile"></i>
+                    Otváracie hodiny
+                   </a>
+            {else}
+                <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">
+                   <i class="fa fa-home arrow mobile"></i>
+                   Otváracie hodiny
+                </a>
+            {/if}
+        {else}
+            {if $web}
+                <a class="a_button button_web_url" href="{$web}">
+                    <i class="fa fa-newspaper-o arrow mobile"></i>
+                    Stránka letákov
+                </a>
+            {else}
+                <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">
+                    <i class="fa fa-newspaper-o arrow mobile"></i>
+                    Stránka letákov
+                </a>
+            {/if}
+        {/if}
+
+    </div>
+
 {/define}

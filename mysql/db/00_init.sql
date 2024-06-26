@@ -140,30 +140,30 @@ CREATE TABLE open_hours_shop_index (
 
 CREATE TABLE open_hours_sc (
     id INTEGER NOT NULL AUTO_INCREMENT primary key,
-    id_oh_sc_index INTEGER NOT NULL,
+    id_open_hours_sc_index INTEGER NOT NULL,
     title VARCHAR(256),
-	id_oh_days INTEGER,
+	id_open_hours_days INTEGER,
     url VARCHAR(256),
     url_web VARCHAR(256),
     slug VARCHAR(256) NOT NULL,
-	FOREIGN KEY (id_oh_days) REFERENCES open_hours_days (id),
-	FOREIGN KEY (id_oh_sc_index) REFERENCES open_hours_sc_index (id)
+	FOREIGN KEY (id_open_hours_days) REFERENCES open_hours_days (id),
+	FOREIGN KEY (id_open_hours_sc_index) REFERENCES open_hours_sc_index (id)
 );
 
 CREATE TABLE open_hours_shop (
     id INTEGER NOT NULL AUTO_INCREMENT primary key,
-    id_oh_shop_index INTEGER NOT NULL,
-	id_oh_days INTEGER,
+    id_open_hours_shop_index INTEGER NOT NULL,
+	id_open_hours_days INTEGER,
     city VARCHAR(128),
     address VARCHAR(128),    
-    id_oh_gps INTEGER,
+    id_open_hours_gps INTEGER,
     desc1 VARCHAR(128),
     desc2 VARCHAR(128),
     url VARCHAR(256),
     slug VARCHAR(256) NOT NULL,
-	FOREIGN KEY (id_oh_shop_index) REFERENCES open_hours_shop_index (id),
-	FOREIGN KEY (id_oh_days) REFERENCES open_hours_days (id),
-	FOREIGN KEY (id_oh_gps) REFERENCES open_hours_gps (id)
+	FOREIGN KEY (id_open_hours_shop_index) REFERENCES open_hours_shop_index (id),
+	FOREIGN KEY (id_open_hours_days) REFERENCES open_hours_days (id),
+	FOREIGN KEY (id_open_hours_gps) REFERENCES open_hours_gps (id)
 );
 
 
@@ -184,6 +184,11 @@ CREATE INDEX idx_open_hours_sc_index_name ON open_hours_sc_index (name);
 
 CREATE INDEX idx_open_hours_shop_slug ON open_hours_shop (slug);
 CREATE INDEX idx_open_hours_sc_slug ON open_hours_sc (slug);
+
+
+CREATE INDEX idx_open_hours_shop_id_oh_days ON open_hours_shop (id_oh_days);
+CREATE INDEX idx_open_hours_shop_id_oh_gps ON open_hours_shop (id_oh_gps);
+CREATE INDEX idx_open_hours_shop_id_oh_shop_index ON open_hours_shop (id_oh_shop_index);
 
 
 

@@ -36,6 +36,14 @@ abstract class BasePresenter extends Presenter
         $this->template->stat_leaflet = $stat_leaflet;
         $this->template->stat_pages = $stat_pages;
 
+        $this->template->shop_web = False;
+        $this->template->oh_url = False;
+
+        $this->template->is_flayer = True;
+        $this->template->oh_exists = False;
+        $this->template->web = False;
+
+
     }
 
 }
