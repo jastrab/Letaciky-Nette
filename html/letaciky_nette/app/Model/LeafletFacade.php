@@ -128,6 +128,21 @@ final class LeafletFacade
                 ->sum('pages2');
 
     }
+
+     /**
+     * Vrati pocet aktivnych letakov na obchod
+     *
+     * @return int
+     */
+     public function getLeafletInShopCount(): array
+    {
+        return  $this->database
+                ->table('leaflet')
+                ->select('id_shop, count(id_shop) AS ecount')
+                ->where('endDate >= ', new \DateTime)
+                ->group('id_shop')
+                ->fetchPairs('id_shop', 'ecount');
+    }
 }
 
 

@@ -1,13 +1,13 @@
 <?php
 namespace App\UI\OpenHours;
 
-use App\Model\OpenHoursFacade;
+//use App\Model\OpenHoursFacade;
 use App\UI\Base\BasePresenter;
 
 final class OpenHoursPresenter extends BasePresenter
 {
     public function __construct(
-        private OpenHoursFacade $open_hours_facade,
+//        private OpenHoursFacade $open_hours_facade,
     ) {
     }
 

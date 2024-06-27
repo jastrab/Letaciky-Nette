@@ -69,4 +69,13 @@ final class OpenHoursFacade
 //        $open_hours_shop->ref('open_hours_days', 'id_oh_days');
 //        return $open_hours_shop;
     }
+
+      public function getOpenHoursInShopCount(): array
+    {
+        return  $this->database
+                ->table('open_hours_shop')
+                ->select('id_open_hours_shop_index, count(id_open_hours_shop_index) AS ecount, open_hours_shop_index.name')
+                ->group('id_open_hours_shop_index')
+                ->fetchPairs('name', 'ecount');
+    }
 }

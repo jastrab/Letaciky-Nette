@@ -59,8 +59,12 @@
             <div class="title_logos">{$type->title}</div>
             <div class="logo_sub flex-container logo_sub_neactive" id="sub_logo_obchody_{$type->name}">
                 {foreach $shops as $shop}
-                    {var $count=0}
                     {if $shop->id_typ == $type->id}
+                     {if $webLeaflet}
+                        {var $count = array_key_exists($shop->id, $leaflet_counts) ? $leaflet_counts[$shop->id] : 0}
+                     {else}
+                        {var $count = array_key_exists($shop->name, $open_hours_counts) ? $open_hours_counts[$shop->name] : 0}
+                     {/if}
                         <a href="/letak/{$shop->name}">
                             <div class="logo_obchod flex-item">
                                 <span class="icon_{$shop->icon}"></span>
