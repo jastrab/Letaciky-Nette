@@ -23,12 +23,19 @@
 </div>
 {/define}
 
-{* <?php if ($key == '' && !isset($open_hours)): ?>*}
 {define info_oh}
-    {if !$oh_exists}
+    {if $webLeaflet}
         <div class="card_ban">
             <a n:href="OpenHours:show" class="a_button button_web_url">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otváracie hodiny&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-clock-o arrow mobile"></i>
+                Otváracie hodiny
+            </a>
+        </div>
+    {else}
+             <div class="card_ban">
+            <a n:href="Home:default" class="a_button button_web_url">
+                <i class="fa fa-newspaper-o arrow mobile"></i>
+                Stránka letákov
             </a>
         </div>
     {/if}
@@ -60,32 +67,43 @@
 
 {define info_url}
     <div class="card_ban">
-        {if $is_flayer}
-            {if $oh_exists}
-                <a class="a_button button_web_url" href="{$oh_url}" target="_blank">
-                    <i class="fa fa-home arrow mobile"></i>
-                    Otváracie hodiny
-                   </a>
-            {else}
-                <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">
-                   <i class="fa fa-home arrow mobile"></i>
-                   Otváracie hodiny
-                </a>
-            {/if}
-        {else}
-            {if $web}
-                <a class="a_button button_web_url" href="{$web}">
-                    <i class="fa fa-newspaper-o arrow mobile"></i>
-                    Stránka letákov
-                </a>
-            {else}
-                <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">
-                    <i class="fa fa-newspaper-o arrow mobile"></i>
-                    Stránka letákov
-                </a>
-            {/if}
-        {/if}
+        {block web_url}{/block}
+
+{*        {if $webLeaflet}*}
+{*            {if $oh_exists}*}
+{*                <a class="a_button button_web_url" href="{$oh_url}" target="_blank">*}
+{*                    <i class="fa fa-home arrow mobile"></i>*}
+{*                    Otváracie hodiny*}
+{*                   </a>*}
+{*            {else}*}
+{*                <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">*}
+{*                   <i class="fa fa-home arrow mobile"></i>*}
+{*                   Otváracie hodiny*}
+{*                </a>*}
+{*            {/if}*}
+{*        {else}*}
+{*            {if $web}*}
+{*                <a class="a_button button_web_url" href="{$web}">*}
+{*                    <i class="fa fa-newspaper-o arrow mobile"></i>*}
+{*                    Stránka letákov*}
+{*                </a>*}
+{*            {else}*}
+{*                <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">*}
+{*                    <i class="fa fa-newspaper-o arrow mobile"></i>*}
+{*                    Stránka letákov*}
+{*                </a>*}
+{*            {/if}*}
+{*        {/if}*}
 
     </div>
 
+{/define}
+
+
+{define info_contact}
+    <div class="card_ban">
+        <a n:href="Contact:show" class="a_button button_web_url" target="_blank">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kontakt&nbsp;&nbsp;&nbsp;
+        </a>
+    </div>
 {/define}

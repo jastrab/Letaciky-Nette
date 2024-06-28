@@ -5,37 +5,12 @@
     ============================
 *}
 
-{define button}
-    <a n:href="Home:default " class="a_button button_back">
-        <i class="fa fa-arrow-circle-left arrow mobile"></i>
-        <span class="button_pc_text">'Späť</span>
-    </a>;
-{/define}
 
-{*DEFINE - Vykreslenie card*}
-{define card, $shop, $leaflet, $img_old}
-    <div class="column">
-        <div class="card">
-            <a n:href="LeafletDetail:show $shop->name, $leaflet->title">
-                <span class="icon_{$shop->icon} img_cover_head"></span>
-            </a>
-            <a n:href="LeafletDetail:show $shop->name, $leaflet->title">
-                <img class="img_cover {$img_old}" height="auto" src="{$url_image}/{$leaflet->title}/__cover__.webp" alt="" >
-                <div class="container">{$shop->title}</div>
-                <div class="container od_do">od {$leaflet->startDate|date:'d. m. Y'} do {$leaflet->endDate|date:'d. m. Y'}</div>
-                <div class="container">{$leaflet->sub_title}</div>
-            </a>
-        </div>
-    </div>
-{/define}
 
 
 <div class="brb">
     <div class="header_no">
-        <a n:href="Home:default " class="a_button button_back">
-            <i class="fa fa-arrow-circle-left arrow mobile"></i>
-            <span class="button_pc_text">späť do menu</span>
-        </a>
+        {include button, $type='menu', $n_href='Home:default'}
         <span class="icon_f_' . {$shop->icon} . ' img_head_logo"></span>
     </div>
     <div class="header_before">
@@ -46,7 +21,8 @@
 
     <div class="cell">
         {foreach $leaflets as $leaflet}
-            {include card, $shop, $leaflet, ''}
+            {var $image = $url_image . '/' . $leaflet->title}
+            {include card, $shop, $leaflet, $image, ''}
         {else}
             <div class="header_no_letaky">Aktuálny leták nie je k dispozícií 😪</div>
         {/foreach}
@@ -61,9 +37,25 @@
 
     <div class="cell">
         {foreach $leaflets_old as $leaflet}
+            {var $image = $url_image . '/' . $leaflet->title}
             {include card, $shop, $leaflet, img_old}
         {else}
             <div class="header_no_letaky">Dnes nekončia žiadne letáky 😉</div>
         {/foreach}
     </div>
 </div>
+{/block}
+
+{block web_url}
+    {if $shop->web}
+        <a class="a_button button_web_url" href="{$shop->web}" target="_blank">
+            <i class="fa fa-home arrow mobile"></i>
+            Stránka obchodu
+       </a>
+    {else}
+        <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">
+            <i class="fa fa-newspaper-o arrow mobile"></i>
+            Stránka obchodu
+        </a>
+    {/if}
+{/block}

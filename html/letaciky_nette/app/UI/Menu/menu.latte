@@ -23,7 +23,11 @@
                     {foreach $shops as $shop}
                         {if $shop->id_typ == $type->id}
                             <div class="menu_sub_items">
-                                <a href="/letak/{$shop->name}">{$shop->title}</a>
+                                {if $webOpenHours}
+                                    <a n:href="OpenHours:show $shop->name">{$shop->title}</a>
+                                {else}
+                                    <a n:href="Leaflet:show $shop->name">{$shop->title}</a>
+                                {/if}
                             </div>
                         {/if}
                     {/foreach}
@@ -65,12 +69,23 @@
                      {else}
                         {var $count = array_key_exists($shop->name, $open_hours_counts) ? $open_hours_counts[$shop->name] : 0}
                      {/if}
-                        <a href="/letak/{$shop->name}">
-                            <div class="logo_obchod flex-item">
-                                <span class="icon_{$shop->icon}"></span>
-                                <span class="badge">{$count}</span>
-                            </div>
-                        </a>
+                           {define nove}
+                                <div class="logo_obchod flex-item">
+                                    <span class="icon_{$shop->icon}"></span>
+                                    <span class="badge">{$count}</span>
+                                </div>
+                           {/define}
+
+                         {if $webOpenHours}
+                            <a n:href="OpenHours:show $shop->name">
+                             {include nove}
+                            </a>
+                         {else}
+                            <a n:href="Leaflet:show $shop->name">
+                             {include nove}
+                            </a>
+                         {/if}
+
                     {/if}
                 {/foreach}
             </div>

@@ -6,10 +6,7 @@
 *}
 
 <div class="header_no">
-    <a n:href="Leaflet:show $shop->name" class="a_button button_back">
-        <i class="fa fa-arrow-circle-left arrow mobile"></i>
-        <span class="button_pc_text">späť do obchodu</span>
-    </a>
+    {include button, $type='shop', $n_href='Leaflet:show', $params = [$shop->name]}
     <h1><span class="od_do_col">{$shop->title}</span> leták</h1>
 </div>
 
@@ -29,3 +26,19 @@
         <img class="img_detail" width="872" height="auto" src="{$url_image}/strana_{$i|padLeft: 2, '0'}.webp" alt="" >
     </div>
 </div>
+{/block}
+
+
+{block web_url}
+    {if $shop->web}
+        <a class="a_button button_web_url" href="{$shop->web}" target="_blank">
+            <i class="fa fa-home arrow mobile"></i>
+            Stránka obchodu
+       </a>
+    {else}
+        <a class="a_button button_web_url button_pass" href="#" alt="Stranka obchodu nedostupna">
+            <i class="fa fa-newspaper-o arrow mobile"></i>
+            Stránka obchodu
+        </a>
+    {/if}
+{/block}

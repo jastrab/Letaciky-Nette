@@ -52,7 +52,7 @@ abstract class BasePresenter extends Presenter
         $this->template->shop_web = False;
         $this->template->oh_url = False;
 
-        $this->template->is_flayer = True;
+//        $this->template->is_flayer = True;
         $this->template->oh_exists = False;
         $this->template->web = False;
 

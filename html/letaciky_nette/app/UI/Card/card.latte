@@ -7,7 +7,8 @@
 
     <div class="column">
         <div class="card">
-            <a n:href="LeafletDetail:show $shop->name, $leaflet->title">
+            <a n:href="Leaflet:show $shop->name">
+{*            <a n:href="LeafletDetail:show $shop->name, $leaflet->title">*}
                 <span class="icon_{$shop->icon} img_cover_head"></span>
             </a>
             <a n:href="LeafletDetail:show $shop->name, $leaflet->title">
@@ -18,4 +19,25 @@
             </a>
         </div>
     </div>
+{/define}
+
+{define button string $type='menu', string $n_href='Home:default', array $params = [], string $name=Null}
+
+    {if !$name}
+        {if $type == 'menu'}
+            {var $name = 'späť do menu'}
+        {elseif $type == 'open_hours'}
+            {var $name = 'späť do zoznamu'}
+        {elseif $type == 'shop_list'}
+{*            {var $name = 'späť do zoznamu obchodu'}*}
+            {var $name = 'späť do obchodu'}
+        {else}
+            {var $name = 'späť do obchodu'}
+        {/if}
+    {/if}
+
+    <a n:href="$n_href ...$params" class="a_button button_back">
+        <i class="fa fa-arrow-circle-left arrow mobile"></i>
+        <span class="button_pc_text">{$name}</span>
+    </a>
 {/define}

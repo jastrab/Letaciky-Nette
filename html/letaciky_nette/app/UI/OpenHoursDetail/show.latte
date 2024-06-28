@@ -8,12 +8,11 @@
 <div class="brb">
 
 	 <div class="header_no">
-        <a n:href="Home:default " class="a_button button_back">
-            <i class="fa fa-arrow-circle-left arrow mobile"></i>
-            <span class="button_pc_text">späť do menu</span>
-        </a>
+        {include button,
+				$type='shop_list',
+				$n_href='OpenHours:show',
+				$params=[$oh_shop->open_hours_shop_index->name] }
       	<span class="icon_f_{$shop?->icon} img_head_logo"></span>
-
     </div>
 
 	<div class="header_before">
@@ -66,7 +65,7 @@
       	</div>
 
 
-		{if $oh_shop->open_hours_gps->lat}
+		{if $oh_shop?->open_hours_gps?->lat}
 			<div class="column_oh">
 				<div class="containerMap">
 					<div id="MapBox" style="height: 21rem"></div>
@@ -77,7 +76,7 @@
 </div>
 
 
-{if $oh_shop->open_hours_gps->lat}
+{if $oh_shop?->open_hours_gps?->lat}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 	{*<link rel="stylesheet" href="{$basePath}/libs/css/Control.MiniMap.min.css" />*}
