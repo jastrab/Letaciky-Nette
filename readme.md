@@ -15,10 +15,9 @@ Funkcne:
 - Listovanie v letakoch
 - Zobrazenie obrazkov (stare letaky nezobrazi, nie su uz obrazky na servery)
 - Vyhladavanie v produktoch
-
-Nefunkcne:
 - Otvaracie hodiny
 
+Nefunkcne:
 - vynechane jazykove mutacie a podpora subdomen
 - nove/aktualizovane data zatial nie su dostupne pre tuto verziu
 
@@ -33,7 +32,9 @@ Docker:
 
 Schema DB:
 
-![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/2d482fa0-5d6b-4736-9c03-93b3761f11ee)
+![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/735ef074-c9ce-4f64-a757-829a48b43af3)
+
+
 
 BD obsahuje testovacie data
 
