@@ -78,7 +78,8 @@ final class LeafletFacade
     {
         return $this->database
             ->table('leaflet')
-            ->where('startDate >= ', new \DateTime)
+//            ->where('startDate >= ', new \DateTime)
+            ->where('startDate >= ', $this->database::literal('DATE(NOW())'))
 //            ->where('startDate IS NOT NULL')
             ->order('createDate DESC')
             ->limit($limit)
@@ -95,7 +96,7 @@ final class LeafletFacade
     {
         return $this->database
             ->table('leaflet')
-            ->where('endDate = ', new \DateTime)
+            ->where('endDate = ', $this->database::literal('DATE(NOW())'))
             ->order('startDate DESC')
             ->limit($limit)
             ->fetchAll();
@@ -142,6 +143,14 @@ final class LeafletFacade
                 ->where('endDate >= ', new \DateTime)
                 ->group('id_shop')
                 ->fetchPairs('id_shop', 'ecount');
+    }
+
+    public function getLeafletTitles(): array
+    {
+        return  $this->database
+                ->table('leaflet')
+                ->select('title')
+                ->fetchPairs(null, 'title');
     }
 }
 

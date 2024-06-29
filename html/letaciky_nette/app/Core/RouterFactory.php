@@ -16,6 +16,9 @@ final class RouterFactory
 	{
 		$router = new RouteList;
 
+        $router->addRoute('/upload', 'DataImport:show');
+
+
         $router->addRoute('/otvorene/<name>/<slug>', 'OpenHoursDetail:show');
         $router->addRoute('/otvorene/<name>', 'OpenHours:show');
 
