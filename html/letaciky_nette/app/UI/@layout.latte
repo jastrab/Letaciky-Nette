@@ -1,5 +1,4 @@
 {import Card/card.latte}
-{import Menu/menu.latte}
 {import Menu/right.latte}
 
 <!DOCTYPE html>
@@ -28,7 +27,6 @@
 
 	<button onclick="topFunction()" id="btnTop" title="Go to top"><i class="fa fa-arrow-circle-up arrow mobile"></i></button>
 
-{*	{include menu}*}
 	{control menu}
 
 	<div id="main">
@@ -36,7 +34,6 @@
 			<div class="leftcolumn">
 				{include content}
 
-{*				{include ikonky}*}
 				{control menuIcons}
 			</div>
 
@@ -52,7 +49,7 @@
 				<div class="bottom_after">
 					<div class="autor">2024 LetNet '(°-°)' Nette fork</div>
 					<div class="autor">
-						<a href="https://letaciky.sk/kontakt">Kontakt</a>
+                        <a n:href="Contact:show">Kontakt</a>
 					</div>
 				</div>
 			</div>

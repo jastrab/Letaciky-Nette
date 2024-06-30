@@ -1,7 +1,5 @@
 {layout none}
 {import ../Menu/right.latte}
-{*{import ../Card/card.latte}*}
-{import ../Menu/menu.latte}
 
 <!DOCTYPE html>
 <html>
@@ -29,7 +27,7 @@
 
     <body>
 
-	    {include menu}
+	    {control menu}
 
 
         {php    $token = bin2hex(random_bytes(32)) }
@@ -72,7 +70,7 @@
                     <div class="bottom_after">
                         <div class="autor">2024 LetNet '(°-°)' Nette fork</div>
                         <div class="autor">
-                            <a href="https://letaciky.sk/kontakt">Kontakt</a>
+                            <a n:href="Contact:show">Kontakt</a>
                         </div>
                     </div>
                 </div>
