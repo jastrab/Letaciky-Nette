@@ -2,8 +2,11 @@ services:
 	- App\Core\RouterFactory::createRouter
 	cache.storage: Nette\Caching\Storages\DevNullStorage
 
+	- App\UI\Accessory\WebParams
+
 search:
 	-	in: %appDir%
 		classes:
 			- *Factory
 			- *Facade
+			- *Component

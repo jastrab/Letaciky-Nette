@@ -16,7 +16,6 @@ final class DataImportPresenter extends Presenter
     #[Inject]
     public ParserLeafletOldFacade $parser;
 
-    #[Nette\Application\Attributes\Persistent]
     public int $sum_insert;
     public function __construct(
     ) {
@@ -37,7 +36,6 @@ final class DataImportPresenter extends Presenter
     public function beforeRender(): void
     {
         parent::beforeRender();
-        bdump($this->sum_insert);
         $this->template->sum_insert = $this->sum_insert;
         $this->redrawControl('sum_insert');
     }

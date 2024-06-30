@@ -1,0 +1,42 @@
+ <div class="logo_obchody_before">
+        <div class="logo_obchody">
+        {foreach $shop_types as $type}
+            <br/>
+            <div class="title_logos">{$type->title}</div>
+            <div class="logo_sub flex-container logo_sub_neactive" id="sub_logo_obchody_{$type->name}">
+                {foreach $shops as $shop}
+                    {if $shop->id_typ == $type->id}
+                     {if !$webOpenHours}
+                        {var $count = array_key_exists($shop->id, $leaflet_counts) ? $leaflet_counts[$shop->id] : 0}
+                     {else}
+                        {var $count = array_key_exists($shop->name, $open_hours_counts) ? $open_hours_counts[$shop->name] : 0}
+                     {/if}
+                           {define nove}
+                                <div class="logo_obchod flex-item">
+                                    <span class="icon_{$shop->icon}"></span>
+                                    <span class="badge">{$count}</span>
+                                </div>
+                           {/define}
+
+                         {if $webOpenHours}
+                            <a href="{plink OpenHours:show $shop->name}">
+                                {include nove}
+                            </a>
+                         {else}
+                             <a href="{plink Leaflet:show $shop->name}">
+                                {include nove}
+                             </a>
+                         {/if}
+
+                    {/if}
+                {/foreach}
+            </div>
+             <button class="a_button logo_obchody_sub"  id="logo_obchody_{$type->name}">
+                 <i class="fa fa-long-arrow-down"></i>
+                    <span class="expand">Zobraziť ďalšie obchody</span>
+                 <i class="fa fa-long-arrow-down"></i>
+             </button>
+        {/foreach}
+
+        </div>
+    </div>

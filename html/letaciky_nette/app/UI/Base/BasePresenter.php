@@ -8,6 +8,9 @@ use App\Model\LeafletFacade;
 use App\Model\OpenHoursFacade;
 use App\Model\ShopFacade;
 use App\Model\ShopTypesFacade;
+use App\UI\Accessory\WebParams;
+use App\UI\Menu\MenuHeadComponent;
+use App\UI\Menu\MenuIconsComponent;
 use Nette\Application\UI\Presenter;
 use Nette\DI\Attributes\Inject;
 
@@ -19,79 +22,72 @@ abstract class BasePresenter extends Presenter
     public ShopFacade $shop_facade;
     #[Inject]
     public LeafletFacade $leaflet_facade;
-     #[Inject]
+    #[Inject]
     public OpenHoursFacade $open_hours_facade;
+    #[Inject]
+    public MenuHeadComponent $menu_head_component;
+    #[Inject]
+    public MenuIconsComponent $menu_icons_component;
+
+//    #[Inject]
+    public WebParams $web_params;
+
+//    public bool $webOpenHours;
+
+    public function __construct()
+    {
+//        $this->webOpenHours = False;
+        $this->web_params = new WebParams($this->getHttpRequest()->getUrl());
+//        $this->web_params->setRequest($this->getHttpRequest()->getUrl());
+    }
+
+//    public function injectWebParams(WebParams $web_params): void
+//    {
+//         $this->web_params = $web_params;
+////        $url = $this->getHttpRequest()->getUrl();
+////        $this->web_params->create();
+//    }
+
+//     public function createWebParams(): WebParams
+//    {
+//        $request = $this->getHttpRequest()->getUrl();
+//        $this->web_params->create($request);
+//    }
 
     protected function beforeRender()
     {
         parent::beforeRender();
 
-        $shop_types = $this->shop_type_facade->getShopTypes();
+//        $shop_types = $this->shop_type_facade->getShopTypes();
         $shops = $this->shop_facade->getShops();
 
-        $stat_leaflet = $this->leaflet_facade->getLeafletCount();
-        $stat_pages = $this->leaflet_facade->getLeafletPagesCount();
+        $stat_leaflet =
+        $stat_pages =
 
+        $this->web_params = new WebParams($this->getHttpRequest()->getUrl());
 
-
-        $open_hours_counts = $this->open_hours_facade->getOpenHoursInShopCount();
-
-        $leaflet_counts = $this->leaflet_facade->getLeafletInShopCount();
-
-        $this->template->leaflet_counts = $leaflet_counts;
-        $this->template->open_hours_counts = $open_hours_counts;
-
-
-        $this->template->shop_types = $shop_types;
-        $this->template->shops = $shops;
 
         $this->template->stat_shop = count($shops);
-        $this->template->stat_leaflet = $stat_leaflet;
-        $this->template->stat_pages = $stat_pages;
+        $this->template->stat_leaflet = $this->leaflet_facade->getLeafletCount();
+        $this->template->stat_pages = $this->leaflet_facade->getLeafletPagesCount();
 
-        $this->template->shop_web = False;
-        $this->template->oh_url = False;
-
-//        $this->template->is_flayer = True;
-        $this->template->oh_exists = False;
-        $this->template->web = False;
-
-        $url = $this->getHttpRequest()->getUrl();
-
-        /**
-         *
-         * Rozdelenie webu na casti:
-         *  - letaky
-         *  - otvaracie hodiny
-         *  - produkty
-         *
-         **/
-        $webOpenHours = False;
-        $webLeaflet = False;
-        $webProducts = False;
-        if (str_contains($url->path, '/otvorene') || str_contains($url->path, '/open'))
-        {
-            $webOpenHours = True;
-        }
-        else if (str_contains($url->path, '/produkt') || str_contains($url->path, '/product'))
-        {
-            $webProducts = True;
-        }
-        else
-        {
-            $webLeaflet = True;
-        }
-
-//        bdump($url);
-        $this->template->webOpenHours = $webOpenHours;
-        $this->template->webLeaflet = $webLeaflet;
-        $this->template->webProducts = $webProducts;
-
-//        bdump($webOpenHours);
-//        bdump($webLeaflet);
-//        bdump($webProducts);
-
+        $this->template->webOpenHours = $this->web_params->getWebOpenHours();
+        $this->template->webLeaflet = $this->web_params->getWebLeaflet();
+        $this->template->webProducts = $this->web_params->getWebProducts();
 
     }
+
+    protected function createComponentMenu(): MenuHeadComponent
+    {
+        $this->menu_icons_component->setWebParams($this->getHttpRequest()->getUrl());
+        return $this->menu_head_component;
+    }
+
+        protected function createComponentMenuIcons(): MenuIconsComponent
+    {
+          $this->menu_icons_component->setWebParams($this->getHttpRequest()->getUrl());
+          return $this->menu_icons_component;
+    }
+
 
 }
