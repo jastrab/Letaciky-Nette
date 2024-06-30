@@ -32,7 +32,7 @@ Docker:
 
 Schema DB:
 
-![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/735ef074-c9ce-4f64-a757-829a48b43af3)
+![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/16875804-b41f-4e27-8931-b33e3ba1a381)
 
 
 
@@ -99,7 +99,8 @@ Database : letaciky
 https://localhost
 ```
 
-![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/849f90aa-3c50-4102-a3e0-82f2e293d2fc)
+![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/bc743575-596f-4586-a20d-7ad804817804)
+
 
 
 
