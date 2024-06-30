@@ -12,14 +12,18 @@
     </div>
     <div class="header_before">
         <div class="header">
-            <h1>Najnovšie pridané letáky</h1>
-            </div>
+            <h1 class="title_h1">Najnovšie pridané letáky</h1>
+             <a n:href="LeafletList:show novinky" class="a_button button_next button_next_h1">
+               <span class="button_pc_text">Ukázať všetky</span>
+               <i class="fa fa-arrow-circle-right arrow mobile"></i>
+             </a>
         </div>
+    </div>
 
     <div class="cell">
         {foreach $leaflets as $leaflet}
             {var $image = $url_image . '/' . $leaflet->shop->name . '/' . $leaflet->title}
-            {include card, $leaflet->shop, $leaflet, $image, ''}
+            {include card, $leaflet->shop, $leaflet, $image, '', $create=True}
         {else}
             <div class="header_no_letaky">Aktuálny leták nie je k dispozícií 😪</div>
         {/foreach}
@@ -28,14 +32,18 @@
 
     <div class="header_stare_letaky">
         <div class="header">
-            <h2>Letáky, ktoré sa dnes končia</h2>
+            <h2 class="title_h1">Letáky, ktoré sa dnes končia</h2>
+            <a n:href="LeafletList:show starinky" class="a_button button_next button_next_h2">
+               <span class="button_pc_text">Ukázať všetky</span>
+               <i class="fa fa-arrow-circle-right arrow mobile"></i>
+             </a>
         </div>
     </div>
 
     <div class="cell">
         {foreach $leaflets_old as $leaflet}
             {var $image = $url_image . '/' . $leaflet->shop->name . '/' . $leaflet->title}
-            {include card, $leaflet->shop, $leaflet, $image, img_old}
+            {include card, $leaflet->shop, $leaflet, $image, ''}
         {else}
             <div class="header_no_letaky">Dnes nekončia žiadne letáky 😉</div>
         {/foreach}

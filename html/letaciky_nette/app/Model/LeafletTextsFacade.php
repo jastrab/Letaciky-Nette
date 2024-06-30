@@ -20,7 +20,6 @@ final class LeafletTextsFacade
     {
         return  $this->database
                 ->table('leaflet_texts')
-//                ->where('endDate >= ', new \DateTime)
                 ->where('text LIKE ?', '%' . $name . '%')
                 ->count();
     }

@@ -1,5 +1,5 @@
 {*DEFINE - Vykreslenie card*}
-{define card, $shop, $leaflet, $image, $img_old=''}
+{define card, $shop, $leaflet, $image, $img_old='', $create=False}
 
     {if ($image|slice:-5) !== '.webp'}
         {var $image = $image . '/__cover__.webp'}
@@ -14,8 +14,15 @@
             <a n:href="LeafletDetail:show $shop->name, $leaflet->title">
                 <img class="img_cover {$img_old}" height="auto" src="{$image}" alt="" >
                 <div class="container">{$shop->title}</div>
-                <div class="container od_do">od {$leaflet->startDate|date:'d. m. Y'} do {$leaflet->endDate|date:'d. m. Y'}</div>
+                <div class="container od_do">
+                    od <span class="od_do_col">{$leaflet->startDate|date:'d.m.'}</span>
+                    do <span class="od_do_col">{$leaflet->endDate|date:'d.m.Y'}</span>
+                </div>
                 <div class="container">{$leaflet->sub_title}</div>
+                {if $create}
+                    <div class="container od_do create_text">Pridané dňa <span class="create_col">{$leaflet->createDate|date:'d.m.Y'}</span></div>
+                {/if}
+
             </a>
         </div>
     </div>

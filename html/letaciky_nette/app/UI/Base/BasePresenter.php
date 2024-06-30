@@ -28,44 +28,20 @@ abstract class BasePresenter extends Presenter
     public MenuHeadComponent $menu_head_component;
     #[Inject]
     public MenuIconsComponent $menu_icons_component;
-
-//    #[Inject]
     public WebParams $web_params;
 
-//    public bool $webOpenHours;
 
     public function __construct()
     {
-//        $this->webOpenHours = False;
-        $this->web_params = new WebParams($this->getHttpRequest()->getUrl());
-//        $this->web_params->setRequest($this->getHttpRequest()->getUrl());
     }
-
-//    public function injectWebParams(WebParams $web_params): void
-//    {
-//         $this->web_params = $web_params;
-////        $url = $this->getHttpRequest()->getUrl();
-////        $this->web_params->create();
-//    }
-
-//     public function createWebParams(): WebParams
-//    {
-//        $request = $this->getHttpRequest()->getUrl();
-//        $this->web_params->create($request);
-//    }
 
     protected function beforeRender()
     {
         parent::beforeRender();
 
-//        $shop_types = $this->shop_type_facade->getShopTypes();
         $shops = $this->shop_facade->getShops();
 
-        $stat_leaflet =
-        $stat_pages =
-
         $this->web_params = new WebParams($this->getHttpRequest()->getUrl());
-
 
         $this->template->stat_shop = count($shops);
         $this->template->stat_leaflet = $this->leaflet_facade->getLeafletCount();
@@ -83,7 +59,7 @@ abstract class BasePresenter extends Presenter
         return $this->menu_head_component;
     }
 
-        protected function createComponentMenuIcons(): MenuIconsComponent
+    protected function createComponentMenuIcons(): MenuIconsComponent
     {
           $this->menu_icons_component->setWebParams($this->getHttpRequest()->getUrl());
           return $this->menu_icons_component;

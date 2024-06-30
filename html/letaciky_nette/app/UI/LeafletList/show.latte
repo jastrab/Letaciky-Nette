@@ -1,0 +1,28 @@
+{block content}
+{*
+    ============================
+     Zoznam letakov
+    ============================
+*}
+
+
+<div class="brb">
+    <div class="header_no">
+        {include button, $type='menu', $n_href='Home:default'}
+    </div>
+    <div class="header_before">
+        <div class="header">
+            <h1 class="title_h1">{$title}</h1>
+            <button class="a_button button_view" id="preview_column"><i class="fa fa-image"></i></button>
+        </div>
+    </div>
+
+    <div class="cell">
+        {foreach $leaflets as $leaflet}
+            {var $shop = $leaflet->shop}
+            {var $image = $url_image . '/' . $shop->name . '/'. $leaflet->title}
+            {include card, $shop, $leaflet, $image, '', $create}
+        {/foreach}
+    </div>
+
+</div>

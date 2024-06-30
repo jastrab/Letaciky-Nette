@@ -78,9 +78,7 @@ final class LeafletFacade
     {
         return $this->database
             ->table('leaflet')
-//            ->where('startDate >= ', new \DateTime)
-            ->where('startDate >= ', $this->database::literal('DATE(NOW())'))
-//            ->where('startDate IS NOT NULL')
+            ->where('endDate >= ', $this->database::literal('DATE(NOW())'))
             ->order('createDate DESC')
             ->limit($limit)
             ->fetchAll();

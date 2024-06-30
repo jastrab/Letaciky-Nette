@@ -18,7 +18,6 @@ final class RouterFactory
 
         $router->addRoute('/upload', 'DataImport:show');
 
-
         $router->addRoute('/otvorene/<name>/<slug>', 'OpenHoursDetail:show');
         $router->addRoute('/otvorene/<name>', 'OpenHours:show');
 
@@ -37,6 +36,9 @@ final class RouterFactory
 
         $router->addRoute('/letak/<name_shop>', 'Leaflet:show');
         $router->addRoute('/leaflet/<name_shop>', 'Leaflet:show');
+
+        $router->addRoute('/letaky/<name>/<limit>', 'LeafletList:show');
+        $router->addRoute('/letaky/<name>', 'LeafletList:show');
 
 		$router->addRoute('<presenter>/<action>[/<id>]', 'Home:default');
 
