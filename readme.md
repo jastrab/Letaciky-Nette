@@ -1,25 +1,34 @@
 
-# Letaciky nette verzia
+# Letáčiky - nette verzia
 
-Postavene na Nette 3 + docker
+Postavené na Nette 3, PHP 8.3, Docker
 
 ## Info:
-- oproti povodnej (php) verzii jej chyba zopar veci
+- koncept vychádza z pôvodnej PHP verzie Letáčikov:
+https://letaciky.sk
 
-Nove:
-- data preklopene do DB
+Funkčné:
+- Úvodna stránka
+- Stránka s letákmi
+- Detail letáku
+- Zobrazenie obrázkov (stare letaky nezobrazi, nie su uz obrazky na servery)
+- Vyhľadávanie produktov v letákoch
+- Otváracie hodiny
+- Detail otváracích hodín + mapa
 
-Funkcne:
-- Uvodna stranka
-- Stranka s letakmi
-- Listovanie v letakoch
-- Zobrazenie obrazkov (stare letaky nezobrazi, nie su uz obrazky na servery)
-- Vyhladavanie v produktoch
-- Otvaracie hodiny
+Nefunkčné:
+- podpora subdomén a zahraničných textov
+- nove/aktualizovane dáta zatial nie su dostupné pre túto verziu
 
-Nefunkcne:
-- vynechane jazykove mutacie a podpora subdomen
-- nove/aktualizovane data zatial nie su dostupne pre tuto verziu
+Nové:
+- nová databáza pre letáky - letáčiky pôvodne nemajú DB letákov (json)
+- nová/upravená databáya pre otváracie hodiny
+- dáta letákov preklopene do DB (dočasný import)
+
+V pláne:
+- API - letáčiky sú dostupné aj na kodi => https://github.com/jastrab/plugin.image.letaky
+- Podpora subdomény -> viď https://letaciky.com
+- Admin zóna
 
 ## Tech. info
 
@@ -30,13 +39,12 @@ Docker:
  - adminer
  - redis
 
-Schema DB:
+Schéma DB:
 
 ![image](https://github.com/jastrab/Letaciky-Nette/assets/6190406/16875804-b41f-4e27-8931-b33e3ba1a381)
 
 
-
-BD obsahuje testovacie data
+DB obsahuje testovacie dáta letákov
 
 ## Inštalácia dockeru
 
